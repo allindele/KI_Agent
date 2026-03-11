@@ -4,9 +4,7 @@ API_URL = "http://localhost:8000/submit_task"
 
 
 def main():
-    print("------------------------------------------------")
-    print(" TÜV NORD - MULTI-INTENT DISPATCHER (FINAL)     ")
-    print("------------------------------------------------")
+    print("TEST")
     print("Bereiche: IT Security, Renewable Energy und Elektrotechnik")
 
     while True:
@@ -14,13 +12,13 @@ def main():
             user_input = input("\nPM > ")
             if not user_input or user_input.lower() in ["exit", "quit"]: break
 
-            print("⏳ KI analysiert Multi-Intents...")
+            print("KI analysiert")
             resp = requests.post(API_URL, json={"text": user_input})
 
             if resp.status_code == 200:
-                print(f"✅ {resp.json()['msg']}")
+                print(f"{resp.json()['msg']}")
             else:
-                print(f"❌ Error: {resp.text}")
+                print(f"Error: {resp.text}")
 
         except Exception as e:
             print(f"Connection Error: {e}")
@@ -28,4 +26,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
